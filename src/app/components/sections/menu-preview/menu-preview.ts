@@ -6,30 +6,36 @@ import { Component } from '@angular/core';
   templateUrl: './menu-preview.html',
 })
 export class MenuPreview {
-  readonly categories = [
+  readonly menuItems = [
     {
-      name: 'Tacos & Tortas',
-      items: ['Street Tacos', 'Tortas', 'Quesadillas'],
+      name: 'Birria Plate',
+      description: 'Tender birria served with rice, beans, pico de gallo, and fresh tortillas.',
+      image: 'images/birriaPlate.png',
     },
     {
-      name: 'Plates',
-      items: ['Birria', 'Chile Verde', 'Mole'],
+      name: 'Menudo',
+      description: 'A traditional Mexican favorite served with fresh tortillas and garnishes.',
+      image: 'images/menudo.png',
     },
     {
-      name: 'Soups',
-      items: ['Menudo', 'Pozole'],
+      name: 'Street Tacos',
+      description: 'Fresh corn tortillas filled with your choice of meat and served with salsa.',
+      image: 'images/tacos.png',
+    },
+    {
+      name: 'Quesadilla',
+      description: 'Golden grilled quesadilla served with red and green salsa.',
+      image: 'images/quesadilla.png',
     },
     {
       name: 'Tamales',
-      items: ['Pork', 'Chicken', 'Rajas con Queso'],
+      description: 'Traditional tamales wrapped in corn husks and made with a variety of fillings.',
+      image: 'images/tamales.png',
     },
     {
-      name: 'Tortillas & Masa',
-      items: ['Fresh Corn Tortillas', 'Fresh Masa'],
-    },
-    {
-      name: 'Drinks & Sweets',
-      items: ['Champurrado', 'Pan Ranchero', 'Empanadas'],
+      name: 'Fresh Corn Tortillas',
+      description: 'Fresh corn tortillas made right here at Mi Casa and available to take home.',
+      image: 'images/tortillas.png',
     },
   ];
 }

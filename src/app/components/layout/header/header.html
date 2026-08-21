@@ -1,43 +1,74 @@
-<header class="sticky top-0 z-50 w-full border-b border-sand bg-cream">
-  <div
-    class="mx-auto flex min-h-17 max-w-7xl items-center justify-between px-5 md:min-h-19 md:px-8"
-  >
-    <a
-      class="text-lg font-bold text-charcoal no-underline md:text-xl"
-      href="#"
-      aria-label="Mi Casa Tortilleria home"
-    >
-      Mi Casa Tortilleria
-    </a>
-
-    <nav class="hidden items-center gap-8 md:flex" aria-label="Main navigation">
+<header class="sticky top-0 z-50 border-b border-sand bg-cream">
+  <div class="mx-auto max-w-7xl px-5 md:px-8">
+    <!-- Main row -->
+    <div class="flex h-16 items-center justify-between md:h-20">
+      <!-- Brand -->
       <a
-        class="font-medium text-charcoal no-underline transition-colors hover:text-red"
+        href="#home"
+        class="font-brand text-2xl text-red no-underline sm:text-3xl md:text-4xl"
+        aria-label="Mi Casa home"
+      >
+        Mi Casa
+      </a>
+
+      <!-- Desktop nav -->
+      <nav class="hidden items-center gap-12 md:flex lg:gap-16" aria-label="Main navigation">
+        <a
+          href="#home"
+          class="text-base font-medium text-charcoal no-underline transition-colors hover:text-red md:text-lg"
+        >
+          Home
+        </a>
+
+        <a
+          href="#menu"
+          class="text-base font-medium text-charcoal no-underline transition-colors hover:text-red md:text-lg"
+        >
+          Menu
+        </a>
+
+        <a
+          href="#visit"
+          class="text-base font-medium text-charcoal no-underline transition-colors hover:text-red md:text-lg"
+        >
+          Visit Us
+        </a>
+      </nav>
+
+      <!-- Order -->
+      <a
+        href="#"
+        class="rounded-full bg-red px-4 py-2.5 text-sm font-semibold text-white no-underline transition-colors hover:bg-red-dark sm:px-5 sm:text-base md:px-6 md:py-3"
+      >
+        Order Online
+      </a>
+    </div>
+
+    <!-- Mobile nav -->
+    <nav
+      class="flex items-center justify-center gap-10 border-t border-sand/70 py-3.5 md:hidden"
+      aria-label="Mobile navigation"
+    >
+      <a
+        href="#home"
+        class="text-base font-medium text-charcoal no-underline transition-colors hover:text-red"
+      >
+        Home
+      </a>
+
+      <a
         href="#menu"
+        class="text-base font-medium text-charcoal no-underline transition-colors hover:text-red"
       >
         Menu
       </a>
 
       <a
-        class="font-medium text-charcoal no-underline transition-colors hover:text-red"
-        href="#story"
-      >
-        Our Story
-      </a>
-
-      <a
-        class="font-medium text-charcoal no-underline transition-colors hover:text-red"
         href="#visit"
+        class="text-base font-medium text-charcoal no-underline transition-colors hover:text-red"
       >
         Visit Us
       </a>
     </nav>
-
-    <a
-      class="rounded-full bg-red px-4 py-2.5 text-sm font-semibold text-white no-underline transition-colors hover:bg-red-dark md:px-5 md:py-3 md:text-base"
-      href="#"
-    >
-      Order Online
-    </a>
   </div>
 </header>

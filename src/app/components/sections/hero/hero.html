@@ -1,49 +1,81 @@
-<section class="bg-cream">
+<section id="home" class="overflow-hidden bg-cream">
   <div
-    class="mx-auto grid max-w-7xl items-center gap-10 px-5 py-12 md:px-8 md:py-16 lg:grid-cols-2 lg:gap-16 lg:py-20"
+    class="mx-auto grid max-w-7xl items-center gap-8 px-5 py-9 md:px-8 md:py-12 lg:grid-cols-[1.1fr_0.9fr] lg:gap-12 lg:py-16"
   >
     <!-- Content -->
     <div>
-      <p class="mb-4 text-sm font-semibold uppercase tracking-[0.2em] text-red">
+      <p class="text-xs font-semibold uppercase tracking-[0.18em] text-red sm:text-sm">
         Family owned since 2012
       </p>
 
+      <p class="mt-2 text-sm font-medium text-brown">West Valley City, Utah</p>
+
       <h1
-        class="max-w-xl text-4xl font-bold leading-tight tracking-tight text-charcoal sm:text-5xl lg:text-6xl"
+        class="mt-5 text-[2.5rem] font-bold leading-[1.02] tracking-tight text-charcoal sm:text-5xl lg:text-6xl"
       >
-        Fresh tortillas.
-        <span class="text-red">Real Zacatecas flavor.</span>
+        <span class="block">Fresh tortillas.</span>
+        <span class="block text-red">Family recipes.</span>
+        <span class="block">Zacatecas flavor.</span>
       </h1>
 
-      <p class="mt-6 max-w-lg text-base leading-7 text-brown sm:text-lg">
-        Authentic Mexican food and fresh corn tortillas made with the flavors our family grew up
-        with.
+      <p class="mt-5 max-w-lg text-base leading-7 text-brown sm:mt-6 sm:text-lg">
+        Authentic Mexican food inspired by the flavors our family grew up with in Zacatecas.
       </p>
-
-      <div class="mt-8 flex flex-wrap gap-3">
-        <a
-          href="#"
-          class="rounded-full bg-red px-6 py-3 font-semibold text-white no-underline transition-colors hover:bg-red-dark"
-        >
-          Order Online
-        </a>
-
-        <a
-          href="#menu"
-          class="rounded-full border border-charcoal px-6 py-3 font-semibold text-charcoal no-underline transition-colors hover:bg-charcoal hover:text-white"
-        >
-          View Menu
-        </a>
-      </div>
     </div>
 
-    <!-- Image -->
-    <div class="overflow-hidden rounded-3xl">
-      <img
-        src="images/hero-tortillas.jpg"
-        alt="Fresh corn tortillas and Mexican food from Mi Casa Tortilleria"
-        class="h-[360px] w-full object-cover sm:h-[450px] lg:h-[560px]"
-      />
+    <!-- Food Carousel -->
+    <div class="mx-auto w-full max-w-[440px] lg:ml-auto lg:mr-0 lg:max-w-[500px]">
+      <!-- Image -->
+      <div class="relative aspect-[4/3] overflow-hidden rounded-3xl bg-white/40">
+        @for (image of heroImages; track image.src; let i = $index) {
+          <img
+            [src]="image.src"
+            [alt]="image.alt"
+            [attr.aria-hidden]="i === currentIndex() ? null : true"
+            class="absolute inset-0 h-full w-full object-cover mix-blend-multiply transition-opacity duration-700"
+            [class.opacity-100]="i === currentIndex()"
+            [class.opacity-0]="i !== currentIndex()"
+          />
+        }
+      </div>
+
+      <!-- Carousel Controls -->
+      <div class="mt-4 flex w-full items-center gap-4">
+        <!-- Previous -->
+        <button
+          type="button"
+          aria-label="Previous food"
+          (click)="previousImage()"
+          class="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-brown/20 bg-cream text-lg font-semibold text-charcoal transition-colors hover:border-red hover:text-red"
+        >
+          ‹
+        </button>
+
+        <!-- Progress -->
+        <div class="flex flex-1 items-center gap-2">
+          @for (image of heroImages; track image.src; let i = $index) {
+            <button
+              type="button"
+              [attr.aria-label]="'Show ' + image.alt"
+              (click)="goToImage(i)"
+              class="h-1.5 flex-1 rounded-full transition-all duration-300"
+              [style.backgroundColor]="
+                i === currentIndex() ? 'var(--color-red)' : 'var(--color-sand)'
+              "
+            ></button>
+          }
+        </div>
+
+        <!-- Next -->
+        <button
+          type="button"
+          aria-label="Next food"
+          (click)="nextImage()"
+          class="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-brown/20 bg-cream text-lg font-semibold text-charcoal transition-colors hover:border-red hover:text-red"
+        >
+          ›
+        </button>
+      </div>
     </div>
   </div>
 </section>

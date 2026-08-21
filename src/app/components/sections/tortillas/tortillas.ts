@@ -3,6 +3,6 @@ import { Component } from '@angular/core';
 @Component({
   imports: [],
   selector: 'app-tortillas',
-  template: ` <p>tortillas works!</p> `,
+  templateUrl: './tortillas.html',
 })
 export class Tortillas {}

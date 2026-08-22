@@ -1,4 +1,4 @@
-import { Component, HostListener, OnInit, signal } from '@angular/core';
+import { Component, ElementRef, HostListener, OnInit, signal, ViewChild } from '@angular/core';
 
 @Component({
   imports: [],
@@ -6,6 +6,9 @@ import { Component, HostListener, OnInit, signal } from '@angular/core';
   templateUrl: './header.html',
 })
 export class Header implements OnInit {
+  @ViewChild('orderMenu')
+  private orderMenu?: ElementRef<HTMLElement>;
+
   readonly activeSection = signal('home');
   readonly orderMenuOpen = signal(false);
 
@@ -26,9 +29,27 @@ export class Header implements OnInit {
     this.updateActiveSection();
   }
 
+  @HostListener('document:click', ['$event'])
+  onDocumentClick(event: MouseEvent): void {
+    const target = event.target as Node;
+
+    if (
+      this.orderMenuOpen() &&
+      this.orderMenu &&
+      !this.orderMenu.nativeElement.contains(target)
+    ) {
+      this.closeOrderMenu();
+    }
+  }
+
+  @HostListener('document:keydown.escape')
+  onEscape(): void {
+    this.closeOrderMenu();
+  }
+
   setActiveSection(section: string): void {
     this.activeSection.set(section);
-    this.orderMenuOpen.set(false);
+    this.closeOrderMenu();
   }
 
   toggleOrderMenu(): void {

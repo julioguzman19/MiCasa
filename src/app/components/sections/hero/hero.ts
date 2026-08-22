@@ -8,8 +8,8 @@ import { Component, OnDestroy, OnInit, signal } from '@angular/core';
 export class Hero implements OnInit, OnDestroy {
   readonly heroImages = [
     {
-      src: 'images/birriaPlate.png',
-      alt: 'Birria plate from Mi Casa Tortilleria',
+      src: 'images/carnitasPlate.png',
+      alt: 'carnitas plate from Mi Casa Tortilleria',
     },
     {
       src: 'images/tacos.png',

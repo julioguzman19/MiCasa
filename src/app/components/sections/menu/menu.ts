@@ -25,8 +25,8 @@ type MenuCategory = {
   templateUrl: './menu.html',
 })
 export class Menu {
-  readonly menuUrl =
-  'https://order.online/business/Mi%20Casa%20Tortilleria-11532486?utm_source=sdk';
+readonly menuUrl =
+  'https://order.online/store/mi-casa-tortilleria-constitution-boulevard-26330860';
 
   readonly menuItems: FeaturedMenuItem[] = [
     {

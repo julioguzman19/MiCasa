@@ -12,26 +12,50 @@
 
       <!-- Navigation -->
       <nav
-        class="flex items-center justify-center gap-4 sm:gap-7 md:gap-12 lg:gap-14"
+        class="flex items-center justify-center gap-4 sm:gap-7 md:gap-10 lg:gap-14"
         aria-label="Main navigation"
       >
+        <!-- Hidden on mobile -->
+        <a
+          href="#home"
+          class="hidden border-b-2 pb-1 text-base font-medium no-underline transition-colors md:inline-flex md:text-lg"
+          [class.border-red]="activeSection() === 'home'"
+          [class.border-transparent]="activeSection() !== 'home'"
+          [class.text-red]="activeSection() === 'home'"
+          [class.text-charcoal]="activeSection() !== 'home'"
+        >
+          Home
+        </a>
+
         <a
           href="#menu"
-          class="text-sm font-medium text-charcoal no-underline transition-colors hover:text-red sm:text-base md:text-lg"
+          class="border-b-2 pb-1 text-sm font-medium no-underline transition-colors sm:text-base md:text-lg"
+          [class.border-red]="activeSection() === 'menu'"
+          [class.border-transparent]="activeSection() !== 'menu'"
+          [class.text-red]="activeSection() === 'menu'"
+          [class.text-charcoal]="activeSection() !== 'menu'"
         >
           Menu
         </a>
 
         <a
           href="#about"
-          class="text-sm font-medium text-charcoal no-underline transition-colors hover:text-red sm:text-base md:text-lg"
+          class="border-b-2 pb-1 text-sm font-medium no-underline transition-colors sm:text-base md:text-lg"
+          [class.border-red]="activeSection() === 'about'"
+          [class.border-transparent]="activeSection() !== 'about'"
+          [class.text-red]="activeSection() === 'about'"
+          [class.text-charcoal]="activeSection() !== 'about'"
         >
           About
         </a>
 
         <a
           href="#visit"
-          class="text-sm font-medium text-charcoal no-underline transition-colors hover:text-red sm:text-base md:text-lg"
+          class="border-b-2 pb-1 text-sm font-medium no-underline transition-colors sm:text-base md:text-lg"
+          [class.border-red]="activeSection() === 'visit'"
+          [class.border-transparent]="activeSection() !== 'visit'"
+          [class.text-red]="activeSection() === 'visit'"
+          [class.text-charcoal]="activeSection() !== 'visit'"
         >
           Visit
         </a>
@@ -39,7 +63,9 @@
 
       <!-- Order -->
       <a
-        href="#"
+        href="https://order.online/business/~11532486"
+        target="_blank"
+        rel="noopener noreferrer"
         class="whitespace-nowrap rounded-full bg-red px-3.5 py-2.5 text-sm font-semibold text-white no-underline transition-colors hover:bg-red-dark sm:px-5 sm:text-base md:px-6 md:py-3"
       >
         Order Online

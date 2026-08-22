@@ -2,10 +2,10 @@ import { Component } from '@angular/core';
 
 @Component({
   imports: [],
-  selector: 'app-menu-preview',
-  templateUrl: './menu-preview.html',
+  selector: 'app-menu',
+  templateUrl: './menu.html',
 })
-export class MenuPreview {
+export class Menu {
   readonly menuItems = [
     {
       name: 'Birria Plate',

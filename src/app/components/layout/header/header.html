@@ -1,74 +1,49 @@
 <header class="sticky top-0 z-50 border-b border-sand bg-cream">
-  <div class="mx-auto max-w-7xl px-5 md:px-8">
-    <!-- Main row -->
-    <div class="flex h-16 items-center justify-between md:h-20">
-      <!-- Brand -->
-      <a
-        href="#home"
-        class="font-brand text-2xl text-red no-underline sm:text-3xl md:text-4xl"
-        aria-label="Mi Casa home"
-      >
-        Mi Casa Tortilleria
+  <div class="mx-auto max-w-7xl px-4 md:px-8">
+    <div class="grid h-16 grid-cols-[auto_1fr_auto] items-center gap-3 md:h-20 md:gap-8">
+      <!-- Logo = Home -->
+      <a href="#home" class="shrink-0" aria-label="Mi Casa Tortilleria home">
+        <img
+          src="images/logo.png"
+          alt="Mi Casa Tortilleria"
+          class="h-10 w-auto object-contain sm:h-11 md:h-14"
+        />
       </a>
 
-      <!-- Desktop nav -->
-      <nav class="hidden items-center gap-12 md:flex lg:gap-16" aria-label="Main navigation">
-        <a
-          href="#home"
-          class="text-base font-medium text-charcoal no-underline transition-colors hover:text-red md:text-lg"
-        >
-          Home
-        </a>
-
+      <!-- Navigation -->
+      <nav
+        class="flex items-center justify-center gap-4 sm:gap-7 md:gap-12 lg:gap-14"
+        aria-label="Main navigation"
+      >
         <a
           href="#menu"
-          class="text-base font-medium text-charcoal no-underline transition-colors hover:text-red md:text-lg"
+          class="text-sm font-medium text-charcoal no-underline transition-colors hover:text-red sm:text-base md:text-lg"
         >
           Menu
         </a>
 
         <a
-          href="#visit"
-          class="text-base font-medium text-charcoal no-underline transition-colors hover:text-red md:text-lg"
+          href="#about"
+          class="text-sm font-medium text-charcoal no-underline transition-colors hover:text-red sm:text-base md:text-lg"
         >
-          Visit Us
+          About
+        </a>
+
+        <a
+          href="#visit"
+          class="text-sm font-medium text-charcoal no-underline transition-colors hover:text-red sm:text-base md:text-lg"
+        >
+          Visit
         </a>
       </nav>
 
       <!-- Order -->
       <a
         href="#"
-        class="rounded-full bg-red px-4 py-2.5 text-sm font-semibold text-white no-underline transition-colors hover:bg-red-dark sm:px-5 sm:text-base md:px-6 md:py-3"
+        class="whitespace-nowrap rounded-full bg-red px-3.5 py-2.5 text-sm font-semibold text-white no-underline transition-colors hover:bg-red-dark sm:px-5 sm:text-base md:px-6 md:py-3"
       >
         Order Online
       </a>
     </div>
-
-    <!-- Mobile nav -->
-    <nav
-      class="flex items-center justify-center gap-10 border-t border-sand/70 py-3.5 md:hidden"
-      aria-label="Mobile navigation"
-    >
-      <a
-        href="#home"
-        class="text-base font-medium text-charcoal no-underline transition-colors hover:text-red"
-      >
-        Home
-      </a>
-
-      <a
-        href="#menu"
-        class="text-base font-medium text-charcoal no-underline transition-colors hover:text-red"
-      >
-        Menu
-      </a>
-
-      <a
-        href="#visit"
-        class="text-base font-medium text-charcoal no-underline transition-colors hover:text-red"
-      >
-        Visit Us
-      </a>
-    </nav>
   </div>
 </header>

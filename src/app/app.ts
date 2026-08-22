@@ -4,7 +4,7 @@ import { Footer } from './components/layout/footer/footer';
 import { Header } from './components/layout/header/header';
 import { Hero } from './components/sections/hero/hero';
 import { MenuPreview } from './components/sections/menu-preview/menu-preview';
-import { OurStory } from './components/sections/our-story/our-story';
+import { About } from './components/sections/about/about';
 import { Visit } from './components/sections/visit/visit';
 
 @Component({
@@ -13,7 +13,7 @@ import { Visit } from './components/sections/visit/visit';
     Header,
     Hero,
     MenuPreview,
-    OurStory,
+    About,
     Visit,
     Footer,
   ],

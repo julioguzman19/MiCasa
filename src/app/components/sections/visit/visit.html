@@ -1,55 +1,72 @@
-<section id="visit" class="bg-green py-14 text-white md:py-20 lg:py-24">
+<section id="visit" class="bg-green py-14 text-white md:py-16">
   <div class="mx-auto max-w-7xl px-5 md:px-8">
-    <div class="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
-      <!-- Visit Details -->
+    <div class="grid items-center gap-8 lg:grid-cols-2 lg:gap-12">
+      <!-- Details -->
       <div>
         <p class="text-sm font-semibold uppercase tracking-[0.2em] text-corn">Visit Mi Casa</p>
 
-        <div class="mt-8 grid gap-6 sm:grid-cols-2">
-          <div>
-            <p class="text-sm font-semibold uppercase tracking-[0.15em] text-corn">Address</p>
+        <!-- Address -->
+        <div class="mt-6">
+          <p class="text-xs font-semibold uppercase tracking-[0.15em] text-corn">Address</p>
 
-            <p class="mt-2 max-w-sm text-lg leading-7">
-              {{ address }}
-            </p>
+          <div class="mt-2">
+            <p class="select-text text-base leading-6 sm:text-lg">2401 Constitution Boulevard</p>
+
+            <div class="mt-1 flex items-center gap-3">
+              <p class="select-text text-base leading-6 sm:text-lg">West Valley City, UT 84119</p>
+
+              <button
+                type="button"
+                (click)="copyAddress()"
+                class="shrink-0 text-sm font-medium text-white/60 underline decoration-white/30 underline-offset-4 transition-colors hover:text-corn"
+              >
+                {{ addressCopied() ? 'Copied!' : 'Copy' }}
+              </button>
+            </div>
           </div>
+        </div>
 
+        <!-- Phone + Hours -->
+        <div class="mt-6 grid grid-cols-2 gap-6">
           <div>
-            <p class="text-sm font-semibold uppercase tracking-[0.15em] text-corn">Phone</p>
+            <p class="text-xs font-semibold uppercase tracking-[0.15em] text-corn">Phone</p>
 
             <a
               href="tel:+18019736475"
-              class="mt-2 inline-block text-lg text-white no-underline transition-colors hover:text-corn"
+              class="mt-2 inline-block text-base text-white no-underline transition-colors hover:text-corn sm:text-lg"
             >
               {{ phone }}
             </a>
           </div>
 
           <div>
-            <p class="text-sm font-semibold uppercase tracking-[0.15em] text-corn">Hours</p>
+            <p class="text-xs font-semibold uppercase tracking-[0.15em] text-corn">Hours</p>
 
-            <p class="mt-2 text-lg text-white/80">Hours coming soon</p>
+            <p class="mt-2 text-base text-white sm:text-lg">Mon–Sun</p>
+
+            <p class="mt-1 text-sm text-white/70 sm:text-base">8:00 AM–11:00 PM</p>
           </div>
         </div>
 
-        <div class="mt-8">
+        <!-- Maps -->
+        <div class="mt-7">
           <a
-            href="https://www.google.com/maps/search/?api=1&query=2401+Constitution+Boulevard+Salt+Lake+City+UT+84119"
+            href="https://www.google.com/maps/search/?api=1&query=2401+Constitution+Boulevard+West+Valley+City+UT+84119"
             target="_blank"
             rel="noopener noreferrer"
-            class="inline-block rounded-full bg-corn px-6 py-3 font-semibold text-charcoal no-underline transition-colors hover:bg-corn-light"
+            class="inline-block rounded-full bg-corn px-5 py-2.5 text-sm font-semibold text-charcoal no-underline transition-colors hover:bg-corn-light sm:text-base"
           >
-            Get Directions
+            Open in Maps
           </a>
         </div>
       </div>
 
       <!-- Map -->
-      <div class="overflow-hidden rounded-3xl">
+      <div class="overflow-hidden rounded-2xl">
         <iframe
           title="Mi Casa Tortilleria location"
-          src="https://www.google.com/maps?q=2401+Constitution+Boulevard+Salt+Lake+City+UT+84119&output=embed"
-          class="h-[320px] w-full border-0 md:h-[360px]"
+          src="https://www.google.com/maps?q=2401+Constitution+Boulevard+West+Valley+City+UT+84119&output=embed"
+          class="h-[230px] w-full border-0 sm:h-[280px] lg:h-[320px]"
           loading="lazy"
           referrerpolicy="no-referrer-when-downgrade"
         ></iframe>

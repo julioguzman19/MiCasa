@@ -1,6 +1,6 @@
 <section id="home" class="overflow-hidden bg-cream">
   <div
-    class="mx-auto grid max-w-7xl items-center gap-8 px-5 py-9 md:px-8 md:py-12 lg:grid-cols-[1.1fr_0.9fr] lg:gap-12 lg:py-16"
+    class="mx-auto grid max-w-[1500px] items-center gap-8 px-5 py-9 md:px-8 md:py-12 lg:grid-cols-[0.85fr_1.15fr] lg:gap-16 lg:px-10 lg:py-14 xl:gap-20 xl:px-12"
   >
     <!-- Content -->
     <div>
@@ -11,21 +11,16 @@
       <p class="mt-2 text-sm font-medium text-brown">West Valley City, Utah</p>
 
       <h1
-        class="mt-5 text-[2.5rem] font-bold leading-[1.02] tracking-tight text-charcoal sm:text-5xl lg:text-6xl"
+        class="mt-5 flex flex-col gap-1 text-[2.5rem] font-bold leading-[1.02] tracking-tight text-charcoal sm:text-5xl lg:text-6xl xl:text-7xl"
       >
-        <span class="block">Fresh tortillas.</span>
-        <span class="block text-red">Family recipes.</span>
-        <span class="block">Zacatecas flavor.</span>
+        <span>Fresh tortillas.</span>
+        <span class="text-red">Family recipes.</span>
+        <span>Zacatecas flavor.</span>
       </h1>
-
-      <p class="mt-5 max-w-lg text-base leading-7 text-brown sm:mt-6 sm:text-lg">
-        Authentic Mexican food inspired by the flavors our family grew up with in Zacatecas.
-      </p>
     </div>
 
     <!-- Food Carousel -->
-    <div class="mx-auto w-full max-w-[440px] lg:ml-auto lg:mr-0 lg:max-w-[500px]">
-      <!-- Image -->
+    <div class="mx-auto w-full max-w-[400px] lg:ml-auto lg:mr-0 lg:max-w-[520px]">
       <div class="relative aspect-[4/3] overflow-hidden rounded-3xl bg-white/40">
         @for (image of heroImages; track image.src; let i = $index) {
           <img
@@ -41,7 +36,6 @@
 
       <!-- Carousel Controls -->
       <div class="mt-4 flex w-full items-center gap-4">
-        <!-- Previous -->
         <button
           type="button"
           aria-label="Previous food"
@@ -51,7 +45,6 @@
           ‹
         </button>
 
-        <!-- Progress -->
         <div class="flex flex-1 items-center gap-2">
           @for (image of heroImages; track image.src; let i = $index) {
             <button
@@ -66,7 +59,6 @@
           }
         </div>
 
-        <!-- Next -->
         <button
           type="button"
           aria-label="Next food"

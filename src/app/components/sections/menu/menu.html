@@ -1,4 +1,4 @@
-<section id="menu" class="bg-sand py-14 md:py-20 lg:py-24">
+<section id="menu" class="scroll-mt-20 bg-sand py-14 md:py-20 lg:py-24">
   <div class="mx-auto max-w-7xl px-4 md:px-8">
     <!-- Heading -->
     <div class="mx-auto max-w-2xl text-center">
@@ -13,7 +13,7 @@
       </p>
     </div>
 
-    <!-- Menu Items -->
+    <!-- Featured Menu Items -->
     <div class="mt-10 grid grid-cols-2 gap-3 sm:gap-5 lg:grid-cols-3 lg:gap-8">
       @for (item of menuItems; track item.name) {
         <article
@@ -40,6 +40,118 @@
           </div>
         </article>
       }
+    </div>
+
+    <!-- Protein Options -->
+    <div class="mx-auto mt-14 max-w-4xl border-y border-brown/10 py-7 text-center">
+      <p class="text-xs font-semibold uppercase tracking-[0.2em] text-red">Choose Your Protein</p>
+
+      <div class="mt-4 flex flex-wrap justify-center gap-2">
+        @for (protein of proteins; track protein) {
+          <span class="rounded-full bg-cream px-4 py-2 text-sm font-medium text-charcoal">
+            {{ protein }}
+          </span>
+        }
+      </div>
+
+      <p class="mt-3 text-xs leading-5 text-brown">
+        Available on select tacos, tortas, quesadillas, burritos, and plates.
+      </p>
+    </div>
+
+    <!-- Explore Menu -->
+    <div class="mx-auto mt-12 max-w-4xl">
+      <div class="text-center">
+        <p class="text-sm font-semibold uppercase tracking-[0.2em] text-red">Explore the Menu</p>
+
+        <h3 class="mt-2 text-2xl font-bold tracking-tight text-charcoal sm:text-3xl">
+          More from Mi Casa.
+        </h3>
+      </div>
+
+      <!-- Categories -->
+      <div class="mt-8 space-y-3">
+        @for (category of menuCategories; track category.name) {
+          <details class="group overflow-hidden rounded-2xl border border-brown/10 bg-cream">
+            <!-- Category Header -->
+            <summary
+              class="flex cursor-pointer list-none items-center justify-between gap-4 px-5 py-4 font-semibold text-charcoal sm:px-6 sm:py-5 sm:text-lg"
+            >
+              <span>
+                {{ category.name }}
+              </span>
+
+              <span
+                class="text-xl font-light text-red transition-transform duration-200 group-open:rotate-45"
+                aria-hidden="true"
+              >
+                +
+              </span>
+            </summary>
+
+            <!-- Category Items -->
+            <div class="border-t border-brown/10 px-5 sm:px-6">
+              @for (item of category.items; track item.name) {
+                <div class="border-b border-brown/10 py-5 last:border-0">
+                  <div class="flex items-start justify-between gap-4">
+                    <h4 class="font-semibold text-charcoal sm:text-lg">
+                      {{ item.name }}
+                    </h4>
+
+                    @if (item.usesProteins) {
+                      <span
+                        class="shrink-0 rounded-full bg-sand px-2.5 py-1 text-[0.65rem] font-semibold uppercase tracking-wide text-brown"
+                      >
+                        Protein choice
+                      </span>
+                    }
+                  </div>
+
+                  <p class="mt-2 max-w-2xl text-sm leading-6 text-brown">
+                    {{ item.description }}
+                  </p>
+
+                  <!-- Options -->
+                  @if (item.options) {
+                    <div class="mt-3 flex flex-wrap gap-2">
+                      @for (option of item.options; track option) {
+                        <span
+                          class="rounded-full border border-brown/10 bg-white px-3 py-1.5 text-xs text-brown"
+                        >
+                          {{ option }}
+                        </span>
+                      }
+                    </div>
+                  }
+
+                  <!-- Availability / Seasonal Note -->
+                  @if (item.note) {
+                    <p class="mt-3 text-xs font-medium leading-5 text-red">
+                      {{ item.note }}
+                    </p>
+                  }
+                </div>
+              }
+            </div>
+          </details>
+        }
+      </div>
+
+      <!-- Full Online Menu -->
+      <div class="mt-10 border-t border-brown/10 pt-8 text-center">
+        <p class="mx-auto max-w-lg text-sm leading-6 text-brown">
+          Looking for current prices, availability, sizes, flavors, or the complete menu?
+        </p>
+
+        <a
+          [href]="menuUrl"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="mt-5 inline-block rounded-full bg-red px-6 py-3 font-semibold text-white no-underline transition-colors hover:bg-red-dark"
+        >
+          View Full Menu & Prices
+        </a>
+      </div>
     </div>
   </div>
 </section>

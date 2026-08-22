@@ -1,24 +1,24 @@
 <header class="sticky top-0 z-50 border-b border-sand bg-cream">
-  <div class="mx-auto max-w-7xl px-4 md:px-8">
-    <div class="grid h-16 grid-cols-[auto_1fr_auto] items-center gap-3 md:h-20 md:gap-8">
-      <!-- Logo = Home -->
-      <a href="#home" class="shrink-0" aria-label="Mi Casa Tortilleria home">
+  <div class="mx-auto max-w-7xl px-3 sm:px-4 md:px-8">
+    <div class="grid h-16 grid-cols-[auto_1fr_auto] items-center gap-2 md:h-20 md:gap-8">
+      <!-- Logo -->
+      <a href="#home" (click)="setActiveSection('home')" aria-label="Mi Casa Tortilleria home">
         <img
           src="images/logo.png"
           alt="Mi Casa Tortilleria"
-          class="h-10 w-auto object-contain sm:h-11 md:h-14"
+          class="h-12 w-auto object-contain md:h-14"
         />
       </a>
 
       <!-- Navigation -->
       <nav
-        class="flex items-center justify-center gap-4 sm:gap-7 md:gap-10 lg:gap-14"
+        class="flex items-center justify-center gap-3 sm:gap-5 md:gap-10 lg:gap-14"
         aria-label="Main navigation"
       >
-        <!-- Hidden on mobile -->
         <a
           href="#home"
-          class="hidden border-b-2 pb-1 text-base font-medium no-underline transition-colors md:inline-flex md:text-lg"
+          (click)="setActiveSection('home')"
+          class="hidden border-b-2 pb-1 font-medium no-underline md:inline-flex md:text-lg"
           [class.border-red]="activeSection() === 'home'"
           [class.border-transparent]="activeSection() !== 'home'"
           [class.text-red]="activeSection() === 'home'"
@@ -29,7 +29,8 @@
 
         <a
           href="#menu"
-          class="border-b-2 pb-1 text-sm font-medium no-underline transition-colors sm:text-base md:text-lg"
+          (click)="setActiveSection('menu')"
+          class="border-b-2 pb-1 text-sm font-medium no-underline sm:text-base md:text-lg"
           [class.border-red]="activeSection() === 'menu'"
           [class.border-transparent]="activeSection() !== 'menu'"
           [class.text-red]="activeSection() === 'menu'"
@@ -40,7 +41,8 @@
 
         <a
           href="#about"
-          class="border-b-2 pb-1 text-sm font-medium no-underline transition-colors sm:text-base md:text-lg"
+          (click)="setActiveSection('about')"
+          class="border-b-2 pb-1 text-sm font-medium no-underline sm:text-base md:text-lg"
           [class.border-red]="activeSection() === 'about'"
           [class.border-transparent]="activeSection() !== 'about'"
           [class.text-red]="activeSection() === 'about'"
@@ -51,7 +53,8 @@
 
         <a
           href="#visit"
-          class="border-b-2 pb-1 text-sm font-medium no-underline transition-colors sm:text-base md:text-lg"
+          (click)="setActiveSection('visit')"
+          class="border-b-2 pb-1 text-sm font-medium no-underline sm:text-base md:text-lg"
           [class.border-red]="activeSection() === 'visit'"
           [class.border-transparent]="activeSection() !== 'visit'"
           [class.text-red]="activeSection() === 'visit'"
@@ -61,15 +64,51 @@
         </a>
       </nav>
 
-      <!-- Order -->
-      <a
-        href="https://order.online/business/~11532486"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="whitespace-nowrap rounded-full bg-red px-3.5 py-2.5 text-sm font-semibold text-white no-underline transition-colors hover:bg-red-dark sm:px-5 sm:text-base md:px-6 md:py-3"
-      >
-        Order Online
-      </a>
+      <!-- Order Online -->
+      <div class="relative justify-self-end">
+        <button
+          type="button"
+          (click)="toggleOrderMenu()"
+          [attr.aria-expanded]="orderMenuOpen()"
+          aria-haspopup="true"
+          class="flex items-center gap-1 whitespace-nowrap rounded-full bg-red px-3 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-red-dark sm:px-4 sm:text-base md:px-6 md:py-3"
+        >
+          Order Online
+
+          <span
+            class="text-[0.6rem] transition-transform duration-200"
+            [class.rotate-180]="orderMenuOpen()"
+          >
+            ▼
+          </span>
+        </button>
+
+        @if (orderMenuOpen()) {
+          <div
+            class="absolute right-0 top-full mt-2 w-40 overflow-hidden rounded-xl border border-sand bg-cream shadow-lg"
+          >
+            <a
+              [href]="pickupUrl"
+              target="_blank"
+              rel="noopener noreferrer"
+              (click)="closeOrderMenu()"
+              class="block px-4 py-3 text-sm font-medium text-charcoal no-underline hover:bg-sand hover:text-red"
+            >
+              Pickup
+            </a>
+
+            <a
+              [href]="deliveryUrl"
+              target="_blank"
+              rel="noopener noreferrer"
+              (click)="closeOrderMenu()"
+              class="block border-t border-sand px-4 py-3 text-sm font-medium text-charcoal no-underline hover:bg-sand hover:text-red"
+            >
+              Delivery
+            </a>
+          </div>
+        }
+      </div>
     </div>
   </div>
 </header>

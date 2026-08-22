@@ -7,6 +7,13 @@ import { Component, HostListener, OnInit, signal } from '@angular/core';
 })
 export class Header implements OnInit {
   readonly activeSection = signal('home');
+  readonly orderMenuOpen = signal(false);
+
+  readonly pickupUrl =
+    'https://order.online/business/Mi%20Casa%20Tortilleria-11532486?pickup=true&utm_source=sdk';
+
+  readonly deliveryUrl =
+    'https://order.online/business/Mi%20Casa%20Tortilleria-11532486?delivery=true&utm_source=sdk';
 
   private readonly sections = ['home', 'menu', 'about', 'visit'];
 
@@ -21,6 +28,15 @@ export class Header implements OnInit {
 
   setActiveSection(section: string): void {
     this.activeSection.set(section);
+    this.orderMenuOpen.set(false);
+  }
+
+  toggleOrderMenu(): void {
+    this.orderMenuOpen.update((open) => !open);
+  }
+
+  closeOrderMenu(): void {
+    this.orderMenuOpen.set(false);
   }
 
   private updateActiveSection(): void {
